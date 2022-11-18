@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Unity.Collections;
 using Unity.Collections.LowLevel.Unsafe;
@@ -16,11 +17,30 @@ public class Reposition : MonoBehaviour
     [SerializeField]
     private ARSessionOrigin ARorigin;
 
-
+    [SerializeField]
+    private List<RoomTargets> QRcodeObjects = new List<RoomTargets>();
 
 
     private IBarcodeReader reader = new BarcodeReader();
     private Texture2D m_Texture;
+
+
+    /* 
+     * 
+     * Test to check in editor if reposition working
+     * 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SetUserLocation("P1160");
+
+        }
+    }
+
+    */
+
+
 
     void OnEnable()
     {
@@ -87,18 +107,27 @@ public class Reposition : MonoBehaviour
 
         if(result != null)
         {
-            SetUserLocation();
+            SetUserLocation(result.Text);
         }
        
   
     }
 
 
-    private void SetUserLocation()
+    private void SetUserLocation(string QRtext)
     {
-        
+        RoomTargets currentQR = QRcodeObjects.Find(x => x.roomname.Equals(QRtext));
         // reset AR session to original location if qr code is scanned
-        ARSession.Reset();
+
+        if(currentQR != null)
+        {
+            ARSession.Reset();
+
+
+            ARorigin.transform.position = currentQR.roomobject.transform.position;
+            ARorigin.transform.rotation = currentQR.roomobject.transform.rotation;
+        }
+       
        
 
     }
