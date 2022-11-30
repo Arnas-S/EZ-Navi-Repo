@@ -7,8 +7,10 @@ using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 using ZXing;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class Reposition : MonoBehaviour
+public class Reposition : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 {
     [SerializeField]
     private ARCameraManager cameraManager;
@@ -41,7 +43,24 @@ public class Reposition : MonoBehaviour
     */
 
 
+    
 
+public void OnPointerDown(PointerEventData eventData)
+    {
+        cameraManager.frameReceived += OnCameraFrameReceived;
+
+        Debug.Log("Button is pressed Down");
+    }
+
+public void OnPointerUp(PointerEventData eventData)
+    {
+        cameraManager.frameReceived -= OnCameraFrameReceived;
+
+        Debug.Log("Button Is Let go");
+    }
+
+
+/*
     void OnEnable()
     {
         cameraManager.frameReceived += OnCameraFrameReceived;
@@ -51,6 +70,19 @@ public class Reposition : MonoBehaviour
     {
         cameraManager.frameReceived -= OnCameraFrameReceived;
     }
+
+*/
+
+
+
+public void DisableScanning(){
+
+cameraManager.frameReceived -= OnCameraFrameReceived;
+
+}
+
+
+
 
     void OnCameraFrameReceived(ARCameraFrameEventArgs eventArgs)
     {
@@ -105,9 +137,15 @@ public class Reposition : MonoBehaviour
 
         var result = reader.Decode(m_Texture.GetPixels32(), m_Texture.width, m_Texture.height);
 
+
+
+
+
         if(result != null)
         {
+            
             SetUserLocation(result.Text);
+            DisableScanning();
         }
        
   
