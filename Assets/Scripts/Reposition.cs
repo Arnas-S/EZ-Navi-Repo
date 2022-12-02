@@ -10,7 +10,7 @@ using ZXing;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class Reposition : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
+public class Reposition : MonoBehaviour
 {
     [SerializeField]
     private ARCameraManager cameraManager;
@@ -21,11 +21,13 @@ public class Reposition : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 
     [SerializeField]
     private List<RoomTargets> QRcodeObjects = new List<RoomTargets>();
-
+    [SerializeField]
+    private GameObject QRenabledText, QRdisabledText, CrosshairScan, CrosshairScanned;
 
     private IBarcodeReader reader = new BarcodeReader();
     private Texture2D m_Texture;
-
+    private int counter = 0;
+    
 
     /* 
      * 
@@ -42,22 +44,46 @@ public class Reposition : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 
     */
 
+   
+   
+    
+
+
+
 
     
 
-public void OnPointerDown(PointerEventData eventData)
+public void QRCodeScanningenable()
     {
-        cameraManager.frameReceived += OnCameraFrameReceived;
+        
+        counter ++;
 
-        Debug.Log("Button is pressed Down");
+
+        if (counter % 2 == 1)
+        {
+            cameraManager.frameReceived += OnCameraFrameReceived;
+            Debug.Log("QR code Scanning Enabled");
+            QRenabledText.SetActive(true);
+            QRdisabledText.SetActive(false);
+            CrosshairScan.SetActive(true);
+        }
+        else
+        {
+            cameraManager.frameReceived -= OnCameraFrameReceived;
+            Debug.Log("QR code Scanning Disabled");
+            QRdisabledText.SetActive(true);
+            QRenabledText.SetActive(false);
+            CrosshairScan.SetActive(false);
+        }
+
+
+
+
     }
 
-public void OnPointerUp(PointerEventData eventData)
-    {
-        cameraManager.frameReceived -= OnCameraFrameReceived;
 
-        Debug.Log("Button Is Let go");
-    }
+
+
 
 
 /*
@@ -78,8 +104,9 @@ public void OnPointerUp(PointerEventData eventData)
 public void DisableScanning(){
 
 cameraManager.frameReceived -= OnCameraFrameReceived;
+        QRdisabledText.SetActive(false);
 
-}
+    }
 
 
 
@@ -143,9 +170,15 @@ cameraManager.frameReceived -= OnCameraFrameReceived;
 
         if(result != null)
         {
-            
+            CrosshairScanned.SetActive(true);
+            CrosshairScan.SetActive(false);
+            QRdisabledText.SetActive(true);
+            QRenabledText.SetActive(false);
+            counter = 0;
             SetUserLocation(result.Text);
             DisableScanning();
+            counter = 0;
+            
         }
        
   
