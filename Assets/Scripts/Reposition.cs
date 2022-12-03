@@ -9,6 +9,7 @@ using UnityEngine.XR.ARSubsystems;
 using ZXing;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System.Collections;
 
 public class Reposition : MonoBehaviour
 {
@@ -82,29 +83,35 @@ public void QRCodeScanningenable()
     }
 
 
-
-
-
-
-/*
-    void OnEnable()
+    public IEnumerator Delay(float time)
     {
-        cameraManager.frameReceived += OnCameraFrameReceived;
+
+
+        yield return new WaitForSeconds(time);
+        CrosshairScanned.SetActive(false);
+
+
     }
 
-    void OnDisable()
-    {
-        cameraManager.frameReceived -= OnCameraFrameReceived;
-    }
+        /*
+            void OnEnable()
+            {
+                cameraManager.frameReceived += OnCameraFrameReceived;
+            }
 
-*/
+            void OnDisable()
+            {
+                cameraManager.frameReceived -= OnCameraFrameReceived;
+            }
+
+        */
 
 
 
-public void DisableScanning(){
+        public void DisableScanning(){
 
 cameraManager.frameReceived -= OnCameraFrameReceived;
-        QRdisabledText.SetActive(false);
+        
 
     }
 
@@ -170,6 +177,7 @@ cameraManager.frameReceived -= OnCameraFrameReceived;
 
         if(result != null)
         {
+
             CrosshairScanned.SetActive(true);
             CrosshairScan.SetActive(false);
             QRdisabledText.SetActive(true);
@@ -178,7 +186,10 @@ cameraManager.frameReceived -= OnCameraFrameReceived;
             SetUserLocation(result.Text);
             DisableScanning();
             counter = 0;
+            StartCoroutine(Delay(1.5f));
             
+
+
         }
        
   

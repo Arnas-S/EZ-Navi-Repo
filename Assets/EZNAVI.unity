@@ -1789,11 +1789,11 @@ MonoBehaviour:
   ARorigin: {fileID: 145521322}
   QRcodeObjects:
   - roomobject: {fileID: 877011046}
-    roomname: P1106East
+    roomname: Entrance
   - roomobject: {fileID: 1901433422}
-    roomname: P1106West
+    roomname: P1105Door
   - roomobject: {fileID: 1445028548}
-    roomname: Corridor4Middle
+    roomname: P1111Door
   QRenabledText: {fileID: 1220374242}
   QRdisabledText: {fileID: 307564946}
   CrosshairScan: {fileID: 285083043}
@@ -5183,17 +5183,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 6eef9ba710c156b46a6003789ada9c55,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.0680003
+      value: 14.426001
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6eef9ba710c156b46a6003789ada9c55,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.269
+      value: 0.26999998
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6eef9ba710c156b46a6003789ada9c55,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 13.112999
+      value: 15.83
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6eef9ba710c156b46a6003789ada9c55,
         type: 3}
@@ -7703,7 +7703,7 @@ GameObject:
   m_Component:
   - component: {fileID: 877011047}
   m_Layer: 0
-  m_Name: QRCodeP1160East(1161 Corridor Wall West)
+  m_Name: EntranceQRcode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7716,14 +7716,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 877011046}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -18.13, y: 0, z: -9.57}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -4.7, y: 0, z: -62.208}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1620036209}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &887721757
 GameObject:
   m_ObjectHideFlags: 0
@@ -12044,37 +12044,37 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 0151e67c77248f54e923e0d5e9c0e598,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.1271105
+      value: 4.4399543
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0151e67c77248f54e923e0d5e9c0e598,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.020999998
+      value: 0.019999996
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0151e67c77248f54e923e0d5e9c0e598,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.5610433
+      value: -29.500378
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0151e67c77248f54e923e0d5e9c0e598,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.6145613
+      value: 0.61566144
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0151e67c77248f54e923e0d5e9c0e598,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.6145614
+      value: -0.61566144
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0151e67c77248f54e923e0d5e9c0e598,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.3497347
+      value: 0.34779465
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0151e67c77248f54e923e0d5e9c0e598,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.34973472
+      value: 0.3477945
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0151e67c77248f54e923e0d5e9c0e598,
         type: 3}
@@ -12089,7 +12089,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 0151e67c77248f54e923e0d5e9c0e598,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -59.287
+      value: 58.925
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 0151e67c77248f54e923e0d5e9c0e598,
         type: 3}
@@ -12125,7 +12125,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1445028549}
   m_Layer: 0
-  m_Name: QRCodeCorridor4Middle(1106)
+  m_Name: P1111Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12138,14 +12138,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1445028548}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.519, y: 0, z: -2.742}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 7.266, y: 0, z: -9.639}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1620036209}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &1461598836
 GameObject:
   m_ObjectHideFlags: 0
@@ -12445,17 +12445,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 6eef9ba710c156b46a6003789ada9c55,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.5740004
+      value: 13.92
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6eef9ba710c156b46a6003789ada9c55,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.269
+      value: 0.27
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6eef9ba710c156b46a6003789ada9c55,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 13.112999
+      value: 15.83
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6eef9ba710c156b46a6003789ada9c55,
         type: 3}
@@ -17303,7 +17303,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1901433423}
   m_Layer: 0
-  m_Name: QRCodeP1160West(Near1105)
+  m_Name: P1105QRcode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17316,14 +17316,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1901433422}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.35, y: 0, z: 0.52}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -4.808, y: 0, z: 1.793}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1620036209}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &1937674136
 GameObject:
   m_ObjectHideFlags: 0
