@@ -23,7 +23,7 @@ public class Reposition : MonoBehaviour
     [SerializeField]
     private List<RoomTargets> QRcodeObjects = new List<RoomTargets>();
     [SerializeField]
-    private GameObject QRenabledText, QRdisabledText, CrosshairScan, CrosshairScanned;
+    private GameObject QRenabledText, QRdisabledText, CrosshairScan, CrosshairScanned, dropdownmenu, dropdownmenuguide;
 
     private IBarcodeReader reader = new BarcodeReader();
     private Texture2D m_Texture;
@@ -89,7 +89,7 @@ public void QRCodeScanningenable()
 
         yield return new WaitForSeconds(time);
         CrosshairScanned.SetActive(false);
-
+        
 
     }
 
@@ -105,6 +105,19 @@ public void QRCodeScanningenable()
             }
 
         */
+
+    public void disableguide()
+    {
+
+        dropdownmenuguide.SetActive(false);
+    }
+
+
+
+
+
+
+
 
 
 
@@ -186,6 +199,7 @@ cameraManager.frameReceived -= OnCameraFrameReceived;
             SetUserLocation(result.Text);
             DisableScanning();
             counter = 0;
+            dropdownmenu.SetActive(true);
             StartCoroutine(Delay(1.5f));
             
 
