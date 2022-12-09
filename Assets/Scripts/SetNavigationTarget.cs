@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using TMPro;
-
+using UnityEngine.UI;
 
 public class SetNavigationTarget : MonoBehaviour
 {
 
     [SerializeField]
     private List<RoomTargets> RoomObjects = new List<RoomTargets>();
+
+    [SerializeField]
+    private Slider NavigationLineSliderYaxis;
+   
 
     [SerializeField]
     private TMP_Dropdown RoomDropdown;
@@ -43,6 +47,11 @@ public class SetNavigationTarget : MonoBehaviour
             line.SetPositions(path.corners);
             line.enabled = true;
 
+            //
+            Vector3[] linepositionY = CustomizelineY();
+            line.SetPositions(linepositionY);
+
+            
 
         }
 
@@ -60,6 +69,25 @@ public class SetNavigationTarget : MonoBehaviour
         }
 
     }
+
+    private Vector3[] CustomizelineY()
+    {
+       
+        Vector3[] calculatedLine = new Vector3[path.corners.Length];
+        for (int i = 0; i < path.corners.Length; i++)
+        {
+            calculatedLine[i] = path.corners[i] + new Vector3(0, NavigationLineSliderYaxis.value, 0);
+
+
+        }
+        return calculatedLine;
+
+    }
+
+    
+
+
+
 
 
 }
